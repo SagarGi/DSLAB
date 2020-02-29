@@ -6,7 +6,7 @@ public class UDPServer {
     public static void main(String args[]) {
         try {
             DatagramSocket serverSocket = new DatagramSocket(3000);
-            byte[] receiveclientMessage = new byte[1000]; // buffer to store client message
+            byte[] receiveclientMessage = new byte[20]; // buffer to store client message
             byte[] serverBuffer = null;
             DatagramPacket serverPackets = null;
             System.out.println("Server is waiting......");
@@ -15,7 +15,7 @@ public class UDPServer {
                 serverPackets = new DatagramPacket(receiveclientMessage, receiveclientMessage.length);
                 serverSocket.receive(serverPackets);
                 System.out.println("Client : " + new String(receiveclientMessage));
-                receiveclientMessage = new byte[1000];
+                // receiveclientMessage = new byte[1000];
                 String serverMessage = scanner.nextLine();
                 serverBuffer = serverMessage.getBytes();
                 InetAddress cliInetAddress = serverPackets.getAddress();

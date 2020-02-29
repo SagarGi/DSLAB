@@ -7,7 +7,7 @@ public class UDPClient {
         DatagramSocket clientSocket = null;
         Scanner scanner = new Scanner(System.in);
         byte clientBuffer[] = null;
-        byte[] receiveserverMessage = new byte[1000];
+        byte[] receiveserverMessage = new byte[20];
         DatagramPacket serverMessagepacket = null;
 
         try {
@@ -23,7 +23,7 @@ public class UDPClient {
                 serverMessagepacket = new DatagramPacket(receiveserverMessage, receiveserverMessage.length);
                 clientSocket.receive(serverMessagepacket);
                 System.out.println("Server : " + new String(receiveserverMessage));
-                receiveserverMessage = new byte[1000];
+                // receiveserverMessage = new byte[1000];
 
             }
         } catch (Exception e) {
