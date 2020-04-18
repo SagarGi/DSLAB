@@ -39,8 +39,6 @@ class RequiredMethods
 
 }
 
-
-
 public class BinarySearchTree {
 
     public static void main(String arg[])
