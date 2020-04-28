@@ -9,9 +9,13 @@ public class ArangingCoin {
         {
             int tempAnswer;
             tempAnswer = n - iterator;
-            if(tempAnswer <= 0)
+            if(tempAnswer == 0)
             {
-                answer = iterator -1;
+                answer = iterator;
+                break;
+            }
+            else if(tempAnswer < 0){
+                answer = iterator - 1;
                 break;
             }
             n = tempAnswer;
