@@ -25,7 +25,6 @@ public class HappyNumber {
                number = number / 10;
             }
             
-            System.out.println(sum);
             if(sum == 0)
             {
                 answer = true;

@@ -5,7 +5,7 @@ public class RewardStudent {
     {
         int countAbsent = 0; 
         int countLate = 0;
-        boolean result = true;
+        boolean result = false;
         for(int i = 0; i < record.length(); i++)
         {
             if(record.charAt(i) == 'A')
@@ -19,9 +19,9 @@ public class RewardStudent {
 
         }
 
-        if(countAbsent > 1 || countLate > 2)
+        if(countAbsent <= 1 || countLate <= 2)
         {
-            result = false;
+            result = true;
         }
 
         return result;
@@ -35,7 +35,7 @@ class RewardStudentDemo
     public static void main(String args[])
     {
         RewardStudent rs = new RewardStudent();
-        String record = "PALLA";
+        String record = "PPALLL";
         boolean result = rs.rewardBestStudent(record);
         System.out.println(result);
     }
