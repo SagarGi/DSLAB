@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 // to check the string is anagram or not simple
