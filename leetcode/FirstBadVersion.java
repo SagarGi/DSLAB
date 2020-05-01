@@ -7,11 +7,11 @@ public class FirstBadVersion {
         while(i < j)
         {
             int mid = (i + j) / 2;
-            if(isBadVersion(mid))
+            // if(isBadVersion(mid))
             {
                 j = mid;
             }
-            else
+            // else
             {
                 i = mid + 1;
             }
