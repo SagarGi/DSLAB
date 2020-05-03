@@ -71,7 +71,7 @@ class SortCharByFrequencyDemo
 {
     public static void main (String args[])
     {
-        String s = "";
+        String s = "tree";
         SortCharByFrequency sf = new SortCharByFrequency();
         System.out.println(sf.frequencySort(s));
     }
