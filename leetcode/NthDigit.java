@@ -3,12 +3,12 @@ public class NthDigit {
     public int findNthDigit(int n) {
 
         int first = 1;
-        int last = 9;
+        long last = 9;
         int length = 1;
 
         while(n > length * last)
         {
-            n = n - (length * last); // to decrease the no of the 1,2,3.... digits and so son
+            n -= (length * last); // to decrease the no of the 1,2,3.... digits and so son
             length++;
             first = first * 10;
             last = last * 10;
@@ -33,7 +33,7 @@ class NthDigitDemo
 {
     public static void main(String args[])
     {
-        int n =1000;
+        int n =1000000000;
         NthDigit nth = new NthDigit();
         System.out.println(nth.findNthDigit(n));
     }
