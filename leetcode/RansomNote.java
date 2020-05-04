@@ -3,7 +3,6 @@ import java.util.HashMap;
 public class RansomNote {
     public boolean canConstruct(String ransomNote, String magazine) {
         boolean result = true;
-
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         char[] strArray = magazine.toCharArray(); 
         for(char c : strArray)
