@@ -28,7 +28,7 @@ class ArmstrongDemo
     public static void main(String args[])
     {
         Armstrong as = new Armstrong();
-        int n = 0;
+        int n = 15;
         System.out.println(as.armstrong(n));
     }
 }
