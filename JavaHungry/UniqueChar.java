@@ -32,3 +32,5 @@ class UniqueCharDemo
         System.out.println(uc.hasUniqueCharacter(s));
     }
 }
+
+// No 4:
