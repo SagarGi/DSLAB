@@ -1,9 +1,7 @@
 import java.util.ArrayList;
-import java.util.List;
-
 public class Intersection {
 
-    public ArrayList intersectionElement(int[] array1, int[] array2)
+    public ArrayList<Integer> intersectionElement(int[] array1, int[] array2)
     {
         ArrayList<Integer> a = new ArrayList<Integer>();
         for(Integer i : array1)
