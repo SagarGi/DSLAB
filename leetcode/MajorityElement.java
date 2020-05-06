@@ -3,7 +3,6 @@ import java.util.HashMap;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-
         int result = 0;
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for(Integer i : nums)
@@ -17,9 +16,7 @@ public class MajorityElement {
                 map.put(i, map.get(i) + 1);
             }
         }
-
         System.out.println(map);
-
         for(Integer i : map.keySet())
         {
             if(map.get(i) > (nums.length /2))
@@ -27,9 +24,7 @@ public class MajorityElement {
                 result = i;
             }
         }
-
         return result;
-        
     }
     
 }
