@@ -17,8 +17,6 @@ public class KidsWithCandies
                 {
                     tempResult = false;
                 }
-
-                
             }
             list.add(tempResult);
         }
