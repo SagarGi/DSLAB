@@ -1,8 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FourSum {
+
 public int [] shiftFirstElement(int nums[])
 {
     for(int i = 0; i < nums.length -1; i++)
@@ -25,12 +26,17 @@ public int [] shiftFirstElement(int nums[])
                     int tempSum = nums[0] + nums[1] + nums[2] + nums[j];
                     if(tempSum == target)
                     {
-                    //    mainlist.add(new ArrayList<Integer>(Arrays.asList(nums[0], 
-                    //    nums[1], 
-                    //    nums[2],
-                    //    nums[j]
-                    //    )));
-                    List<Integer> listk = new ArrayList<>();
+                    List<Integer> list = new ArrayList<>();
+                    list.add(nums[0]);
+                    list.add(nums[1]);
+                    list.add(nums[2]);
+                    list.add(nums[j]);
+
+                    Collections.sort(list);
+                    if(!mainlist.contains(list))
+                    {
+                        mainlist.add(list);
+                    }
                     }
                 }
                 shiftFirstElement(nums);
@@ -55,4 +61,5 @@ class FourSumDemo
     }
 }
 
-// works but gives duplicate value
+// doest work fine
+
