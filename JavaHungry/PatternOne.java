@@ -10,6 +10,7 @@ public class PatternOne {
         list.add("in");
         list.add("a");
         list.add("frame");
+        list.add("sagar");
         for(int i = 0; i < list.size() + 2; i++)
         {
             for(int j = 0; j < 9; j++)
