@@ -13,14 +13,42 @@ public class PerfectSquare
         return ans;
         
     }
+
+    public boolean isPerfectSquareByBinarySearch(int num)
+    {
+        
+        if(num == 1)
+        {
+            return true;
+        }
+        long start = 1;
+        long end = num / 2;
+        while(start <= end)
+        {
+            long mid = start + (end - start) / 2;
+            if(mid * mid == num)
+            {
+                return true;
+            }
+            else if(mid * mid > num)
+            {
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        return false;
+    }
 }
 
 class PerfectSquareDemo
 {
     public static void main(String[] args) {
-        int num = 100;
+        int num = 10;
         PerfectSquare ps = new PerfectSquare();
-        System.out.println(ps.isPerfectSquare(num));
+        System.out.println(ps.isPerfectSquareByBinarySearch(num));
 
     }
 }
