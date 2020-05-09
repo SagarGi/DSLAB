@@ -46,7 +46,7 @@ public class PatternTwo {
            }
 
            for(int i = 0; i < mainlist.size() + 2; i++)
-        {
+            {
             for(int j = 0; j < length + 4; j++)
             {
                 if(i == 0 || i == mainlist.size() + 2 - 1)
