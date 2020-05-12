@@ -50,19 +50,47 @@ public class ValidPalindromeII {
     //     return false;
 
     // the above code exceeds time limit 
-
-
-
-
-
     
-    
+
+    public boolean validPalindrome(String s) {
+
+        int start = 0;
+        int end = s.length() - 1;
+
+        while(start <= end)
+        {
+            if(s.charAt(start) != s.charAt(end))
+            {
+                return checkPalindromeSkipingOneChar(s,start + 1, end) || checkPalindromeSkipingOneChar(s,start, end - 1);
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+
+    public boolean checkPalindromeSkipingOneChar(String s,int i, int j)
+    {
+        int start = i;
+        int end = j;
+
+        while(start <= end)
+        {
+            if(s.charAt(start) != s.charAt(end))
+            {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 }
 
 class ValidPalindromeIIDemo
 {
     public static void main(String[] args) {
-        String s = "abbcba";
+        String s = "abca";
         ValidPalindromeII v = new ValidPalindromeII();
         System.out.println(v.validPalindrome(s));
     }
