@@ -24,8 +24,8 @@ public class MaxKSubArray
 class MaxKSubArrayDemo
 {
     public static void main(String[] args) {
-        int nums[] = {4,1,3,2,6};
-        int k = 2;
+        int nums[] = {1,6,2,3,4,1};
+        int k = 3;
         MaxKSubArray max = new MaxKSubArray();
         System.out.println(max.maxKSubArray(nums , k));
     }
