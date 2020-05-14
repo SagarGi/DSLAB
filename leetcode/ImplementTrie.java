@@ -59,7 +59,5 @@ class ImplementTrieDemo
         it.insert("app");
         // System.out.println(it.startsWith("app")); 
         System.out.println(it.search("ap"));
-
-
     }
 }
