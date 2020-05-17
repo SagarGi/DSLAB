@@ -2,6 +2,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimplifiedFraction {
+
+    public int gcd(int i , int j)
+    {
+        if(j == 0)
+        {
+            return i;
+        }
+
+        return gcd(j, i % j);
+    }
    
     public List<String> simplifiedFractions(int n) {
         List<String> list = new ArrayList<>();
@@ -9,13 +19,14 @@ public class SimplifiedFraction {
         {
             for(int j = i + 1; j <= n; j++)
             {
-                    
-                    list.add(i + "/" + j);
+                    if(gcd(i, j) == 1)
+                    {
+                        list.add(i + "/" + j);
+
+                    }
             }
-
         }
-
-        System.out.println();
+        // System.out.println(gcd(1, 7));
 
        
         return list;
@@ -25,9 +36,10 @@ public class SimplifiedFraction {
 class SimplifiedFractionDemo
 {
     public static void main(String[] args) {
-        int n = 8;
+        int n = 10;
         SimplifiedFraction sf = new SimplifiedFraction();
         System.out.println(sf.simplifiedFractions(n));
     }
 }
 //  not completed
+// completed now
