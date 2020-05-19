@@ -69,6 +69,34 @@ public class BinaryTreeTraversal {
             preOrderTraversal(node.right);
         }
     }
+
+    public void postOrderTraversal(TreeNode node)
+    {
+        if(node == null)
+        {
+            return;
+        }
+        else
+        {
+            postOrderTraversal(node.left);
+            postOrderTraversal(node.right);
+            System.out.println(node.data + "\t");
+        }
+    }
+
+    public void inOrderTraversal(TreeNode node)
+    {
+        if(node == null)
+        {
+            return;
+        }
+        else
+        {
+            inOrderTraversal(node.left);
+            System.out.println(node.data);
+            inOrderTraversal(node.right);
+        }
+    }
 }
 
 class BinaryTreeTraversalDemo
@@ -81,7 +109,7 @@ class BinaryTreeTraversalDemo
         btt.node.left.left = new TreeNode(4);
         btt.node.left.right = new TreeNode(5);
 
-        btt.preOrderTraversal(btt.node);
+        btt.inOrderTraversal(btt.node);
         
     }
 }
