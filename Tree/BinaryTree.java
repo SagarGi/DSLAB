@@ -1,3 +1,5 @@
+import javax.lang.model.util.ElementScanner6;
+
 class NodeBinaryTree
 {
     int data;
@@ -31,6 +33,56 @@ class BinaryTreeOperation
             node.rightNode = insert(node.rightNode, value);
         }
         return node;
+    }
+
+
+    // deletion in binary search tree
+
+    public NodeBinaryTree deleteNode(NodeBinaryTree node, int value)
+    {
+        if(node == null)
+        {
+            return null;
+        }
+
+        if(value < node.data)
+        {
+            node.leftNode = deleteNode(node.leftNode, value);
+        }
+        else if(value > node.data)
+        {
+            node.rightNode = deleteNode(node.rightNode, value);
+        }
+        else
+        {
+            //  it is the condition where the  the ndoe value is itself
+            if(node.leftNode == null)
+            {
+                return node.rightNode;
+            }
+            else if(node.rightNode == null)
+            {
+                return node.leftNode;
+            }
+
+            // we traverse right part of tree for minimum value
+            node.data = minimumValueOfRight(node.rightNode);
+            node.rightNode = deleteNode(node.rightNode, node.data);
+        }
+        return node;
+    } 
+
+    // calculate minimum value from right
+    public int minimumValueOfRight(NodeBinaryTree node)
+    {
+        int minimum = node.data;
+        while(node.leftNode != null)
+        {
+            minimum = node.leftNode.data;
+            node = node.leftNode;
+        }
+
+        return minimum;
     }
 }
 

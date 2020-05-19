@@ -15,7 +15,7 @@ public class Pattern5 {
         {
            for(int j = i; j >= 0; j--)
            {
-               if(i == 0 || i == 6)
+               if(i == 6)
                {
                    System.out.print("*  ");
                }
