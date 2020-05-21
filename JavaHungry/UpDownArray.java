@@ -10,26 +10,10 @@ import java.util.Arrays;
 
 
 public class UpDownArray { 
-
-    public int rotateCircular(int array[])
-    {
-        for(int i = array.length - 1; i > 0; i--)
-        {
-            // swap last to first
-            int temp = array[i];
-            array[i] = array[i -1];
-            array[i-1] = temp;
-        }
-        return array[0];
-    }
     public static void main(String[] args) {
         int array[] = {2,7,4,5,7,1,8,3};
-        UpDownArray uda = new UpDownArray();
         // first sort it out
-       
         Arrays.sort(array);
-
-      
         for(int i = 0; i < array.length; i = i + 2)
         {
             for(int j = array.length - 1; j > i; j--)
