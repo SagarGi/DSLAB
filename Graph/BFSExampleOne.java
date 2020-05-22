@@ -67,7 +67,6 @@ class BFSExampleOneDemo
         bfs.addEdge(2,3);
         bfs.addEdge(1,2);
         bfs.addEdge(3,3);
-
         bfs.BreadthFirstSearch(0);
     }
 }

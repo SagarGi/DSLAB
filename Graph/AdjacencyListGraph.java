@@ -35,7 +35,6 @@ public class AdjacencyListGraph {
                 {
                     System.out.print(list[i].get(j) + "\t");
                 }
-
             }
             System.out.println();
         }
