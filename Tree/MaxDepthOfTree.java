@@ -25,6 +25,32 @@ public class MaxDepthOfTree
         return Math.max(leftDepth, rightDepth) + 1;
 
     }
+
+    
+    public int minDepth(TreeNode4 tree)
+    {
+        if(tree == null)
+        {
+            return 0;
+        }
+        if(tree.left == null && tree.right == null)
+        {
+            return 1;
+        }
+
+        int leftDepth = Integer.MAX_VALUE;
+        int rightDepth = Integer.MAX_VALUE;
+
+        if(tree.left != null)
+        {
+            leftDepth = minDepth(tree.left);
+        }
+        if(tree.right != null)
+        {
+            rightDepth = minDepth(tree.right);
+        }
+        return Math.min(leftDepth, rightDepth) + 1;
+    }
 }
 
 class MaxDepthOfTreeDemo
@@ -33,11 +59,11 @@ class MaxDepthOfTreeDemo
         TreeNode4 tree = null;
         tree = new TreeNode4(3);
         tree.left = new TreeNode4(9);
-        tree.right = new TreeNode4(20);
-        tree.right.right = new TreeNode4(7);
-        tree.right.left = new TreeNode4(15);
+        // tree.right = new TreeNode4(20);
+        // tree.right.right = new TreeNode4(7);
+        // tree.right.left = new TreeNode4(15);
 
         MaxDepthOfTree mt = new MaxDepthOfTree();
-        System.out.println(mt.maxDepth(tree));
+        System.out.println(mt.minDepth(tree));
     }
 }
