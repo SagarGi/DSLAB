@@ -66,4 +66,3 @@ class FindCommonCharactersDemo
     }
 }
 
-// find common character it exceeds time limit
