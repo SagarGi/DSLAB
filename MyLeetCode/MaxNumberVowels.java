@@ -9,40 +9,44 @@ public class MaxNumberVowels {
         l.add('i');
         l.add('o');
         l.add('u');
-        int max = 0;
-        for(int i = 0; i < s.length() - k + 1; i++)
-        {
-            
-                int tempMax = 0;
-                int j = i;
-                int tempLength = k;
-                while(tempLength > 0)
-                {
-                    if(l.contains(s.charAt(j)))
-                    {
-                        tempMax++;
-                    }
-                    j++;
-                   tempLength--;
-                }
-                if(tempMax > max)
-                {
-                    max = tempMax;
-                }
-        }
-        return max;
+       int max = 0;
+       for(int i = 0; i < k; i++)
+       {
+           if(l.contains(s.charAt(i)))
+           {
+               max++;
+           }
+       }
+
+       int ans = max;
+       for(int i = k; i < s.length(); i++)
+       {
+            if(l.contains(s.charAt(i)))
+            {
+                max++;
+            }
+
+            if(l.contains( s.charAt(i - k)))
+            {
+                max--;
+            }
+
+            ans = Math.max(ans, max);
+
+       }
+        return ans;
     }
 }
 
 class MaxNumberVowelsDemo
 {
     public static void main(String[] args) {
-        String s = "abciiidef";
-        int k = 3;
+        String s = "leetcode";
+        int k = 2;
         MaxNumberVowels m = new MaxNumberVowels();
 
         System.out.println(m.maxVowels(s, k));
     }
 }
 
-// works but time limits exceeds
+// update from discussion 
