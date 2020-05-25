@@ -17,6 +17,28 @@ class TreeNode8
 
 public class DFSTreeStack {
 
+    // inorder sorting in bst without recursion
+
+    public void inorderSorting(TreeNode8 tree)
+    {
+        Stack<TreeNode8> stack = new Stack<>();
+        TreeNode8 currentNode = tree;
+
+        while(currentNode != null || !stack.isEmpty())
+        {
+            // reach to the leftmost node
+            while(currentNode != null)
+            {
+                stack.push(currentNode);
+                currentNode = currentNode.left;
+            }
+
+            currentNode = stack.pop();
+            System.out.println(currentNode.val + "   ");
+            currentNode = currentNode.right;
+        }
+    }
+
     // with recursion
     public void stackDFSTree(TreeNode8 tree)
     {
@@ -44,15 +66,15 @@ class DFSTreeStackDemo
     public static void main(String[] args) 
     {
         TreeNode8 tree = null;
-        tree = new TreeNode8(1);
-        tree.left = new TreeNode8(2);
-        tree.left.left = new TreeNode8(3);
-        tree.left.left.right = new TreeNode8(3);
-        tree.left.right = new TreeNode8(4);
-        tree.right = new TreeNode8(5);
-        tree.right.right = new TreeNode8(6);
+        tree = new TreeNode8(8);
+        tree.left = new TreeNode8(5);
+        tree.left.left = new TreeNode8(1);
+        tree.left.right = new TreeNode8(6);
+        tree.right = new TreeNode8(10);
+        tree.right.right = new TreeNode8(16);
+        tree.right.left = new TreeNode8(9);
 
         DFSTreeStack st = new DFSTreeStack();
-        st.stackDFSTree(tree);
+        st.inorderSorting(tree);
     }
 }
