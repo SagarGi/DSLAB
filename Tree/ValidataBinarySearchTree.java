@@ -1,5 +1,5 @@
-import java.util.LinkedList;
-import java.util.Queue;
+
+import java.util.Stack;
 
 class TreeNode7
 {
@@ -18,12 +18,35 @@ class TreeNode7
 public class ValidataBinarySearchTree {
 
     public boolean isValidBST(TreeNode7 tree) {
+
         if(tree == null)
         {
             return true;
         }
-        
-        return true;
+    
+        Stack<TreeNode7> stack = new Stack<>();
+        TreeNode7 currentNode = tree;
+
+        TreeNode7 previousNode = new TreeNode7(Integer.MIN_VALUE);
+
+        while(currentNode != null || !stack.isEmpty())
+        {
+            while(currentNode != null)
+            {
+                stack.push(currentNode);
+                currentNode = currentNode.left;
+            }
+            
+            currentNode = stack.pop();
+            if(previousNode.val > currentNode.val)
+            {
+                return false;
+            }
+            previousNode = currentNode; 
+
+            currentNode = currentNode.right;
+        }
+      return true;
     }
 }
 
@@ -34,9 +57,11 @@ class ValidataBinarySearchTreeDemo
         ValidataBinarySearchTree vbst = new ValidataBinarySearchTree();
         tree = new TreeNode7(10);
         tree.left = new TreeNode7(5);
+        // tree.left.left = new TreeNode7(1);
+        // tree.left.right = new TreeNode7(6);
         tree.right = new TreeNode7(15);
-        tree.right.left = new TreeNode7(6);
         tree.right.right = new TreeNode7(20);
+        tree.right.left = new TreeNode7(6);
         
 
         System.out.println(vbst.isValidBST(tree));
