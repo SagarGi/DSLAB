@@ -1,9 +1,6 @@
 public class UncrossedLine
 {
     public int maxUncrossedLines(int[] A, int[] B) {
-
-        
-
         int aLength = A.length;
         int bLength = B.length;
 
