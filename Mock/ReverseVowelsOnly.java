@@ -10,32 +10,39 @@ public class ReverseVowelsOnly {
         list.add('i');
         list.add('o');
         list.add('u');
+        list.add('A');
+        list.add('E');
+        list.add('I');
+        list.add('O');
+        list.add('U');
 
-        char ch[] = s.toCharArray();
+        // solve using two pointer
+        int start = 0;
+        int end = s.length() - 1;
+        char [] ch = s.toCharArray();
 
-        for(int i = 0; i < s.length(); i++)
+        while(start < end)
         {
-            if(list.contains(ch[i]) && i < s.length() - 1)
+            if(list.contains(ch[start]) && list.contains(ch[end]))
             {
-                for(int j = i + 1; j < s.length(); j++)
-                {
-                    if(list.contains(ch[j]))
-                    {
-                        // swap
-                        char temp = ch[i];
-                        ch[i] = ch[j];
-                        ch[j] = temp;
-                    }
-                }
+                char temp = ch[start];
+                 ch[start]= ch[end];
+                 ch[end]=temp;
+
+                 start++;
+                 end--;
             }
-        }
+            if(!list.contains(ch[start]))
+            {
+                start++;
+            }
+            if(!list.contains(ch[end]))
+            {
+                end--;
+            }
 
-        for(char c : ch)
-        {
-            result = result + c;
         }
-
-        return result;
+        return String.valueOf(ch);
 
     }
 }
@@ -44,7 +51,7 @@ public class ReverseVowelsOnly {
 class ReverseVowelsOnlyDemo
 {
     public static void main(String[] args) {
-        String s = "a";
+        String s = "leetcode";
         ReverseVowelsOnly rvo = new ReverseVowelsOnly();
         System.out.println(rvo.reverseVowels(s));
     }
