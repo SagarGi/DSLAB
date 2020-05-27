@@ -3,7 +3,6 @@ import java.util.List;
 
 public class ReverseVowelsOnly {
     public String reverseVowels(String s) {
-        String result = "";
         List<Character> list = new ArrayList<>();
         list.add('a');
         list.add('e');
