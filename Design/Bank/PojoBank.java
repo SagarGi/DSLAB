@@ -56,4 +56,26 @@ public class PojoBank {
         System.out.println("Balance : " + getBalance());
         System.out.println("Mobile Number : " + getContact());
     }
+
+    public void depositeBalance(float deposite)
+    {
+        balance = balance + deposite;
+    }
+
+    public void myBalance()
+    {
+        System.out.println("Your Current Balance is : " + getBalance());
+    }
+
+    public void withDrawal(float withdraw)
+    {
+        if(withdraw > getBalance())
+        {
+            System.out.println("Withdrawal Money Exceeds!!");
+        }
+        else
+        {
+            balance = balance - withdraw;
+        }
+    }
 }

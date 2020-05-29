@@ -22,8 +22,13 @@ public class BankManagement {
     // updation
     user1.updateName("Sagar Thapa");
     user1.updateNumber("9883628632");
-    user1.displayUserInformation();
-    
 
+    // deposite
+    user1.depositeBalance(4500);
+
+    // withdrawal
+
+    user1.withDrawal(1000);
+    user1.myBalance();
 }
 }
