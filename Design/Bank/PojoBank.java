@@ -13,6 +13,23 @@ public class PojoBank {
         this.mobileNumber = mobileNumber;
     }
 
+    public void updateName(String name)
+    {
+        this.name = name;
+    }
+    public void updateAccount(int  accountNumber)
+    {
+        this.accountNumber = accountNumber;
+    }
+    public void updateBalance(float  balance)
+    {
+        this.balance = balance;
+    }
+    public void updateNumber(String mobileNumber)
+    {
+        this.mobileNumber = mobileNumber;
+    }
+
     public String getName()
     {
         return name;
@@ -30,5 +47,13 @@ public class PojoBank {
     public String getContact()
     {
         return mobileNumber;
+    }
+
+    public void displayUserInformation()
+    {
+        System.out.println("Name : " + getName());
+        System.out.println("Account Number : " + getAccount());
+        System.out.println("Balance : " + getBalance());
+        System.out.println("Mobile Number : " + getContact());
     }
 }
