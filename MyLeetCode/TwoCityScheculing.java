@@ -3,9 +3,7 @@ import java.util.Arrays;
 public class TwoCityScheculing {
     public int twoCitySchedCost(int[][] costs) {
         int cost = 0;
-
         // use comparator
-
         Arrays.sort(costs, (a , b) -> 
         {
             return (a[0]- a[1]) - (b[0] - b[1]);
