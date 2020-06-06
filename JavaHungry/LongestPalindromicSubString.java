@@ -1,6 +1,6 @@
 public class LongestPalindromicSubString
 {
-    public int longest(String s)
+    public int longestBruteForce(String s)
     {
         int longest = 0;
         for(int i = 0; i < s.length() - 1; i++)
@@ -32,6 +32,14 @@ public class LongestPalindromicSubString
         }
         return longest;
     }
+
+
+    public int longest(String s)
+    {
+        int longest = 0;
+        
+        return longest;
+    }
 }
 
 class LongestPalindromicSubStringDemo
@@ -39,6 +47,6 @@ class LongestPalindromicSubStringDemo
     public static void main(String[] args) {
         String s = "aaaabbaa";
         LongestPalindromicSubString lss = new LongestPalindromicSubString();
-        System.out.println(lss.longest(s));
+        System.out.println(lss.longestBruteForce(s));
     }
 }
