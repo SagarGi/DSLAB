@@ -109,9 +109,39 @@ public class AddTwoLinkedList {
     }
 
 
+    public ListNode20 mergeTwoLists(ListNode20 l1, ListNode20 l2) {
+        ListNode20 list = null;
+        ListNode20 head1 = l1;
+        ListNode20 head2 = l2;
+        
+        while(head1 != null && head2 != null)
+        {
+            if(head1.val < head2.val)
+            {
+                list = add(list, head1.val);
+                head1 = head1.next;
+            }
+            else
+            {
+                list = add(list, head2.val);
+                head2 = head2.next;
+            }
+        }
 
+        while(head1 != null)
+        {
+                    list = add(list, head1.val);
+                    head1 = head1.next;
+        }
 
+        while(head2 != null)
+        {
+            list = add(list, head2.val);
+            head2 = head2.next;
+        }
 
+        return list;
+    }
 
     public void display(ListNode20 list)
     {
@@ -132,17 +162,17 @@ class AddTwoLinkedListDemo
     public static void main(String[] args) {
         ListNode20 list1 = null;
         AddTwoLinkedList a = new AddTwoLinkedList();
-        list1 = a.add(list1 , 2);
+        list1 = a.add(list1 , 1);
+        list1 = a.add(list1, 2);
         list1 = a.add(list1, 4);
-        list1 = a.add(list1, 3);
 
         ListNode20 list2 = null;
-        list2 = a.add(list2 , 5);
-        list2 = a.add(list2, 6);
+        list2 = a.add(list2 , 1);
+        list2 = a.add(list2, 3);
         list2 = a.add(list2, 4);
 
-      ListNode20 ist =  a.addTwoNumbers(list1, list2);
-      a.display(ist);
+      ListNode20 mergedList = a.mergeTwoLists(list1, list2);
+      a.display(mergedList);
 
 
 
