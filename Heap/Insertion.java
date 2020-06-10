@@ -60,9 +60,6 @@ public class Insertion {
         k--;
         System.out.println(parentIndex);
     }
-       
-    
-
     }
 
     public void displayHeap(int array[])
