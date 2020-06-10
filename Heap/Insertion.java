@@ -22,6 +22,49 @@ public class Insertion {
     
     }
 
+    public void deletionElementInHeap(int array[])
+    {
+        
+        // we swap root element and the last element of the max heap
+        int length = array.length;
+        array[0] = array[length - 1];
+        array[length - 1] = 0; // replace last element with zero
+
+
+        length = length - 1;
+        System.out.println(length);
+       int parentIndex = 0;
+      int k = 3;
+       while(k > 0){
+        int leftChildIndex = 2  * parentIndex + 1;
+        int rightChildIndex = 2  * parentIndex + 2;
+
+        if(leftChildIndex < length && array[leftChildIndex] > array[rightChildIndex])
+        {
+             //    swap with left
+             int temp1 = array[parentIndex];
+             array[parentIndex] = array[leftChildIndex];
+             array[leftChildIndex] = temp1;
+ 
+             parentIndex = leftChildIndex;
+        }
+        else if(rightChildIndex < length && array[rightChildIndex] > array[leftChildIndex])
+        {
+            //    swap with left
+         int temp1 = array[parentIndex];
+         array[parentIndex] = array[rightChildIndex];
+         array[rightChildIndex] = temp1;
+
+         parentIndex = rightChildIndex;
+        }
+        k--;
+        System.out.println(parentIndex);
+    }
+       
+    
+
+    }
+
     public void displayHeap(int array[])
     {   
         for(Integer i : array)
@@ -47,8 +90,16 @@ class InsertionDemo
         array[8] = 35;
         int val = 60;
         Insertion i = new Insertion();
-        i.insertionElementInHeap(array, length, val);
-        i.displayHeap(array);
+        // i.insertionElementInHeap(array, length, val);
+        // i.displayHeap(array);
+
+        int array1[] = new int[]{50,45,35,33,16,25,34,12,10};
+        i.deletionElementInHeap(array1);
+        i.displayHeap(array1);
+
+        
+
+
 
     }
 }
