@@ -7,12 +7,12 @@ public class HeapSort
         int leftChildIndex = 2 * i + 1;
         int rightChildIndex = 2 * i + 2;
 
-        while(leftChildIndex < array.length && array[leftChildIndex] > array[largest])
+        while(leftChildIndex < n && array[leftChildIndex] > array[largest])
         {
             largest = leftChildIndex;
         }
 
-        while(rightChildIndex < array.length && array[rightChildIndex] > array[largest])
+        while(rightChildIndex < n && array[rightChildIndex] > array[largest])
         {
             largest = rightChildIndex;
         }
@@ -20,9 +20,9 @@ public class HeapSort
         if(largest != i)
         {
             //swap
-            int temp = array[largest];
-            array[largest] = array[i];
-            array[i] = temp;
+            int temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
             heapify(array, n, largest);
         }
         
@@ -41,13 +41,24 @@ public class HeapSort
 class HeapSortDemo
 {
     public static void main(String[] args) {
-        int array[] = {15,5,20,1,17,10,30};
+        int array[] = {12, 11, 13, 5, 6, 7};
         int n = array.length;
         HeapSort hs = new HeapSort();
+        // biuild max heap
         for (int i = n / 2 - 1; i >= 0; i--) 
-        {
+        
             hs. heapify(array, n, i);
+        
+
+        // next is deleting
+        for(int i = n - 1; i > 0; i--)
+        {
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+            hs.heapify(array, i, 0);
         }
+
         hs.printArray(array);
 
     }
