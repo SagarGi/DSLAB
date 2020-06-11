@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class KthLargestElement {
@@ -14,6 +15,21 @@ public class KthLargestElement {
 
        return minHeap.poll();
     }
+
+    public int findKthSmallest(int nums[], int k)
+    {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        for(Integer i : nums)
+        {
+            maxHeap.add(i);
+            if(maxHeap.size() > k)
+            {
+                maxHeap.poll();
+            }
+        }
+
+        return maxHeap.poll();
+    }
 }
 
 class KthLargestElementDemo
@@ -23,5 +39,6 @@ class KthLargestElementDemo
         int k = 2;
         KthLargestElement ke  = new KthLargestElement();
         System.out.println(ke.findKthLargest(nums, k));
+        System.out.println(ke.findKthSmallest(nums, k));
     }
 }
