@@ -1,158 +1,53 @@
 
 public class AddBinary {
 
-    public void  addBinary(String a, String b)
-    {
-        
-        String sum = new String();
-        int aSize = a.length();
-        int bSize = b.length();
+    public String addBinary(String a, String b) {
+        int aLength = a.length() - 1;
+        int bLength = b.length() - 1;
+
+        // in addition we need carray
         int carry = 0;
-        //  making the string of same size by adding zero
-        if(aSize > bSize)
-        {
-            String newb = "";
-            for(int i = 0; i < (aSize-bSize); i++)
-            {
-                newb = newb + "0";
+
+        // string builder to store the reuslt
+        StringBuilder result = new StringBuilder();
+
+        while (aLength >= 0 || bLength >= 0) {
+            int sum = carry; // each time sum = carry for next iteration
+
+            if (aLength >= 0) {
+                sum = sum + Character.getNumericValue(a.charAt(aLength));
+                aLength--;
             }
-            b = newb + b;
+
+            if (bLength >= 0) {
+                sum = sum + Character.getNumericValue(b.charAt(bLength));
+                bLength--;
+
+            }
+
+            if (sum <= 1) {
+                result.append(sum);
+                carry = 0;
+            } else {
+                result.append(sum % 2); // which is the binary form
+                carry = 1;
+            }
         }
-        else if(aSize < bSize)
-        {
-            String newa = "";
-            for(int i = 0; i < (bSize- aSize); i++)
-            {
-                newa = newa + "0";
-            }
-            a = newa + a;
+
+        if (carry != 0) {
+            result.append(carry);
         }
-        // System.out.println(a);
-        // System.out.println(b);
 
-        // now adding the binary number
+        return result.reverse().toString();
 
-        for(int i = aSize-1; i >= 0; i--)
-        {
-            // System.out.println(a.charAt(i));
-            // System.out.println(b.charAt(i));
-            System.out.println(carry);
-            if(carry == 0)
-            {
-                if(carry == 0 && i == 0)
-                {
-                    if(a.charAt(i) == '0' && b.charAt(i) == '0')
-                    {
-                        sum = "0" + sum;
-                       
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '0')
-                    {
-                        sum =  "1" + sum ;
-                      
-                    }
-                    else if(a.charAt(i) == '0' && b.charAt(i) == '1')
-                    {
-                        sum = "1"+ sum;
-                    
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '1')
-                    {
-                        sum = "11" + sum;
-                       
-                    }
-                }
-                else
-                {
-                    if(a.charAt(i) == '0' && b.charAt(i) == '0')
-                {
-                    sum = "0" + sum;
-                    carry = 0;
-                }
-                else if(a.charAt(i) == '1' && b.charAt(i) == '0')
-                {
-                    sum = "1" + sum;
-                    carry = 0;
-                }
-                else if(a.charAt(i) == '0' && b.charAt(i) == '1')
-                {
-                    sum = "1" + sum;
-                    carry = 0;
-                }
-                else if(a.charAt(i) == '1' && b.charAt(i) == '1')
-                {
-                    
-                    sum = "0" + sum;
-                    carry = 1;
-                }
-                }
-                
-            }
-            else
-            {
-                if(carry == 1 && i == 0)
-                {
-                    if(a.charAt(i) == '0' && b.charAt(i) == '0')
-                    {
-                        sum = "1" + "0" + sum;
-                       
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '0')
-                    {
-                        sum = "1" + "0" + sum ;
-                      
-                    }
-                    else if(a.charAt(i) == '0' && b.charAt(i) == '1')
-                    {
-                        sum = "1" + "0" + sum;
-                    
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '1')
-                    {
-                        sum = "1" +"1" + sum;
-                       
-                    }
-                }
-                else{
-
-                    if(a.charAt(i) == '0' && b.charAt(i) == '0')
-                    {
-                        sum = "1" + sum;
-                        carry = 0;
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '0')
-                    {
-                        sum = "0" + sum;
-                        carry = 1;
-                    }
-                    else if(a.charAt(i) == '0' && b.charAt(i) == '1')
-                    {
-                        sum ="0" + sum;
-                        carry = 1;
-                    }
-                    else if(a.charAt(i) == '1' && b.charAt(i) == '1')
-                    {
-                        sum = "1" + sum;
-                        carry = 1;
-                    }
-
-                }
-            }
-            System.out.println(carry);
-        }
-        System.out.println("carry after loop = " + carry);
-        System.out.println(sum);
-       
-       
     }
 
 }
 
-class AddBinaryDemo
-{
-    public static void main(String args[])
-    {
+class AddBinaryDemo {
+    public static void main(String args[]) {
         AddBinary ab = new AddBinary();
-        ab.addBinary("11", "1");
+        String result = ab.addBinary("1010", "1011");
+        System.out.println(result);
     }
 }
