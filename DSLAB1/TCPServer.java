@@ -7,7 +7,7 @@ public class TCPServer {
         ServerSocket ss = null;
         Scanner scanner = new Scanner(System.in);
         try {
-            ss = new ServerSocket(6666);
+            ss = new ServerSocket(9999);
             Socket s = ss.accept();// establishes connection
             DataInputStream dis = new DataInputStream(s.getInputStream());
             DataOutputStream doutserver = new DataOutputStream(s.getOutputStream());

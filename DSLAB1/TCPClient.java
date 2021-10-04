@@ -7,7 +7,7 @@ public class TCPClient {
         Scanner scanner = new Scanner(System.in);
         Socket s = null;
         try {
-            s = new Socket("localhost", 6666);
+            s = new Socket("localhost", 8888);
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             String message = "";
             DataInputStream dis = new DataInputStream(s.getInputStream());
